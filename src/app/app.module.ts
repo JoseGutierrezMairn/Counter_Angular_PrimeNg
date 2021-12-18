@@ -8,11 +8,13 @@ import { AppComponent } from './app.component';
 import { MessageService } from 'primeng/api';
 import { PrimeNgModule } from './components/prime-ng/prime-ng.module';
 import { ButtonCounterComponent } from './components/button-counter/button-counter.component';
+import { LabelComponent } from './components/label/label.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ButtonCounterComponent
+    ButtonCounterComponent,
+    LabelComponent
   ],
   imports: [
     CommonModule,

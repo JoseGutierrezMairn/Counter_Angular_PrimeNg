@@ -1,5 +1,6 @@
 import { compileNgModuleDeclarationExpression } from '@angular/compiler/src/render3/r3_module_compiler';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { SharedService } from 'src/app/SharedService/shared-service';
 
 
 @Component({
@@ -10,17 +11,25 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 export class ButtonCounterComponent implements OnInit {
 
   @Input() value: string;
-  @Input() disabled: boolean;
-  @Output() myEvent: EventEmitter<string> = new EventEmitter<string>();
+  disabled: boolean;
+  currentCount: number;
 
-  constructor( ) { 
-   }
+  constructor( private sharedService: SharedService ) {  }
 
-  ngOnInit(): void {  }
+  ngOnInit(): void {  
+    this.sharedService.count.subscribe( count => {
+      this.currentCount = count;
+    } );
+  }
 
   handleClick(): void{
-    this.myEvent.emit(this.value);
-    
+        if( this.value == '+' ){
+          this.sharedService.sum();
+          this.disabled = this.currentCount == 20;
+        }else{
+          this.sharedService.rest();
+          this.disabled = this.currentCount == 0;
+        }
   }
 
 }

@@ -16,9 +16,9 @@
     </div>
     
       <div class="container">
-        <app-button-counter value='-' (myEvent)='handleEvent($event)' [disabled]="disableMin"></app-button-counter>
-          <p class="text" >{{ text }}</p>
-        <app-button-counter value='+' (myEvent)="handleEvent($event)" [disabled]="disableMax"></app-button-counter>
+        <app-button-counter value='-'></app-button-counter>
+          <app-label></app-label>
+        <app-button-counter value='+' ></app-button-counter>
       </div>
   </div>
   
