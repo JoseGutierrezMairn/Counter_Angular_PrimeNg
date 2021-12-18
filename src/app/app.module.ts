@@ -1,16 +1,29 @@
-import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { MessageService } from 'primeng/api';
+import { PrimeNgModule } from './components/prime-ng/prime-ng.module';
+import { ButtonCounterComponent } from './components/button-counter/button-counter.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ButtonCounterComponent
   ],
   imports: [
-    BrowserModule
+    CommonModule,
+    BrowserAnimationsModule,
+    BrowserModule,
+    FormsModule,
+    PrimeNgModule
   ],
-  providers: [],
+  providers: [
+    MessageService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
